@@ -1,6 +1,8 @@
 import * as my_dongle from "bleuio";
 function decimalToHex2ByteLittleEndian(decimal) {
-  decimal = parseInt(decimal) * 100;
+  if (decimal.includes(".")) decimal = parseFloat(decimal) * 100;
+  else decimal = parseInt(decimal) * 100;
+
   if (decimal >= 0 && decimal <= 4294967295) {
     // Ensure decimal is within 4-byte range
     const hex = decimal.toString(16).padStart(4, "0").toUpperCase();
@@ -29,7 +31,8 @@ function hex2LittleEndian(decimal) {
   return hexBytes.reverse().join("");
 }
 function decimalToHex2ByteBigEndian(decimal) {
-  decimal = parseInt(decimal) * 100;
+  if (decimal.includes(".")) decimal = parseFloat(decimal) * 10;
+  else decimal = parseInt(decimal) * 10;
   if (decimal >= 0 && decimal <= 4294967295) {
     // Ensure decimal is within 4-byte range
     const hex = decimal.toString(16);
@@ -117,14 +120,16 @@ const readBtn = (msgID, btnName) => {
     console.log(x);
     setTimeout(() => {
       my_dongle.at_spssend("AREV=" + msgID).then((y) => {
-        console.log(y);
+        console.log("yy", y);
         setTimeout(() => {
           my_dongle.at_spssend("AREV=" + msgID).then((z) => {
-            console.log(z);
-            document.getElementById("terminal").innerHTML += z + "<br/>";
-            document.getElementById(btnName + "_READ_DATA").innerHTML =
-              z[z.length - 1];
-            document.getElementById("loader").style.display = "none";
+            setTimeout(() => {
+              console.log(z);
+              document.getElementById("terminal").innerHTML += z + "<br/>";
+              document.getElementById(btnName + "_READ_DATA").innerHTML =
+                z[z.length - 1];
+              document.getElementById("loader").style.display = "none";
+            }, 500);
           });
         }, 500);
       });
@@ -138,6 +143,10 @@ const confBtn = (writeID, readID, btnName) => {
     my_dongle.at_spssend("CFGE=" + writeID + "=" + theVal).then((res) => {
       document.getElementById("terminal").innerHTML += res + "<br/>";
       readBtn(readID, btnName);
+      document.getElementById("liveToast").classList.add("show");
+      setTimeout(() => {
+        document.getElementById("liveToast").classList.remove("show");
+      }, 2000);
     });
   }
 };
@@ -148,6 +157,10 @@ const confBtnLittleEndian = (writeID, readID, btnName) => {
     my_dongle.at_spssend("CFGE=" + writeID + "=" + theVal).then((res) => {
       document.getElementById("terminal").innerHTML += res + "<br/>";
       readBtn(readID, btnName);
+      document.getElementById("liveToast").classList.add("show");
+      setTimeout(() => {
+        document.getElementById("liveToast").classList.remove("show");
+      }, 2000);
     });
   }
 };
@@ -159,6 +172,10 @@ const confBtnDec2 = (writeID, readID, btnName) => {
     my_dongle.at_spssend("CFGE=" + writeID + "=" + theVal).then((res) => {
       document.getElementById("terminal").innerHTML += res + "<br/>";
       readBtn(readID, btnName);
+      document.getElementById("liveToast").classList.add("show");
+      setTimeout(() => {
+        document.getElementById("liveToast").classList.remove("show");
+      }, 2000);
     });
   }
 };
@@ -166,9 +183,14 @@ const confBtnDec2BigEndian = (writeID, readID, btnName) => {
   let theVal = document.getElementById(btnName + "_VALUE").value;
   if (theVal) {
     theVal = decimalToHex2ByteBigEndian(theVal);
+    console.log(theVal);
     my_dongle.at_spssend("CFGE=" + writeID + "=" + theVal).then((res) => {
       document.getElementById("terminal").innerHTML += res + "<br/>";
       readBtn(readID, btnName);
+      document.getElementById("liveToast").classList.add("show");
+      setTimeout(() => {
+        document.getElementById("liveToast").classList.remove("show");
+      }, 2000);
     });
   }
 };
@@ -181,6 +203,10 @@ const confBtnDec2Hex = (writeID, readID, btnName, size) => {
     my_dongle.at_spssend("CFGE=" + writeID + "=" + theVal).then((res) => {
       document.getElementById("terminal").innerHTML += res + "<br/>";
       readBtn(readID, btnName);
+      document.getElementById("liveToast").classList.add("show");
+      setTimeout(() => {
+        document.getElementById("liveToast").classList.remove("show");
+      }, 2000);
     });
   }
 };
@@ -286,6 +312,7 @@ document.getElementById("FLOOR_TH_CONF_BTN").addEventListener("click", () => {
 });
 //ROOF_TH
 document.getElementById("ROOF_TH_READ_BTN").addEventListener("click", () => {
+  console.log("here");
   readBtn("10 ", "ROOF_TH");
 });
 document.getElementById("ROOF_TH_CONF_BTN").addEventListener("click", () => {

@@ -303,7 +303,7 @@
                   <div class="col-3">
                     <div class="input-group">
                       <span class="input-group-text" id="basic-addon1"
-                        >HEX</span
+                        >Dec</span
                       >
                       <input
                         type="text"
@@ -536,7 +536,7 @@
                     >
                       Read
                     </button>
-                    <span id="ROOF_THR_READ_DATA"></span>
+                    <span id="ROOF_TH_READ_DATA"></span>
                   </div>
                 </div>
                 <!-- end single item -->
@@ -2334,6 +2334,27 @@
       </div>
     </div>
     <div id="terminal" class="fixed-bottom"></div>
+
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        id="liveToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Updated</strong>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">Value updated successfully</div>
+      </div>
+    </div>
 
     <script src="./script.js" type="module"></script>
   </body>

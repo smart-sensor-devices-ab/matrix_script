@@ -1,0 +1,20 @@
+.singleItem {
+  margin-bottom: 20px;
+}
+
+#terminal {
+  color: #fff;
+  height: 100px;
+  background: #000;
+  padding: 10px 20px;
+  font-family: Courier New, Courier, monospace;
+  font-size: 18px;
+  line-height: 20px;
+  overflow-y: scroll;
+}
+
+body {
+  margin-bottom: 110px;
+}
+
+/*# sourceMappingURL=index.3a01df49.css.map */
