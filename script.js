@@ -94,7 +94,7 @@ document
                     res2 + "<br/>";
                   isConnected = true;
                   document.getElementById("configTable").style.display =
-                    "table";
+                    "block";
                   document.getElementById("loader").style.display = "none";
                 });
               } else {
