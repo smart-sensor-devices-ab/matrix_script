@@ -120,7 +120,6 @@ const readBtn = (msgID, btnName) => {
     console.log(x);
     setTimeout(() => {
       my_dongle.at_spssend("AREV=" + msgID).then((y) => {
-        console.log("yy", y);
         setTimeout(() => {
           my_dongle.at_spssend("AREV=" + msgID).then((z) => {
             setTimeout(() => {
@@ -146,7 +145,7 @@ const confBtn = (writeID, readID, btnName) => {
       document.getElementById("liveToast").classList.add("show");
       setTimeout(() => {
         document.getElementById("liveToast").classList.remove("show");
-      }, 2000);
+      }, 4000);
     });
   }
 };
@@ -160,7 +159,7 @@ const confBtnLittleEndian = (writeID, readID, btnName) => {
       document.getElementById("liveToast").classList.add("show");
       setTimeout(() => {
         document.getElementById("liveToast").classList.remove("show");
-      }, 2000);
+      }, 4000);
     });
   }
 };
@@ -175,7 +174,7 @@ const confBtnDec2 = (writeID, readID, btnName) => {
       document.getElementById("liveToast").classList.add("show");
       setTimeout(() => {
         document.getElementById("liveToast").classList.remove("show");
-      }, 2000);
+      }, 4000);
     });
   }
 };
@@ -190,7 +189,7 @@ const confBtnDec2BigEndian = (writeID, readID, btnName) => {
       document.getElementById("liveToast").classList.add("show");
       setTimeout(() => {
         document.getElementById("liveToast").classList.remove("show");
-      }, 2000);
+      }, 4000);
     });
   }
 };
@@ -206,7 +205,7 @@ const confBtnDec2Hex = (writeID, readID, btnName, size) => {
       document.getElementById("liveToast").classList.add("show");
       setTimeout(() => {
         document.getElementById("liveToast").classList.remove("show");
-      }, 2000);
+      }, 4000);
     });
   }
 };

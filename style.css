@@ -10,7 +10,20 @@
   font-family: "Courier New", Courier, monospace;
   height: 100px;
   overflow-y: scroll;
+  z-index: 9999;
 }
 body {
   margin-bottom: 110px;
+}
+#loader {
+  position: absolute;
+  width: 98%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  color: white;
+  text-align: center;
+  padding-top: 20%;
+  font-size: 30px;
+  border-radius: 5px;
 }
