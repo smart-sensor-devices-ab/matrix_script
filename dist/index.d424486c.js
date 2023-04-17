@@ -445,6 +445,7 @@ $0a8d6484c996af74$export$f35259d22fab611 = async function() {
 }, $0a8d6484c996af74$export$84eb2cc27f02edba = function(t = 1, e = 5) {
     return $0a8d6484c996af74$var$writeCmd("AT+FINDSCANDATA=" + t + "=" + e), $0a8d6484c996af74$var$readLoop("at_findscandata");
 }, $0a8d6484c996af74$export$3801b3c2c982dd5a = function(t) {
+    $0a8d6484c996af74$var$arr = [];
     return $0a8d6484c996af74$var$writeCmd("AT+GAPCONNECT=" + t), $0a8d6484c996af74$var$readLoop("at_gapconnect");
 }, $0a8d6484c996af74$export$df94a12ce52fb3af = function() {
     return $0a8d6484c996af74$var$writeCmd("AT+GAPDISCONNECT"), $0a8d6484c996af74$var$readLoop("at_gapdisconnect");
@@ -471,9 +472,10 @@ $0a8d6484c996af74$export$f35259d22fab611 = async function() {
 }, $0a8d6484c996af74$export$57f42bd516dd6142 = function(t) {
     return $0a8d6484c996af74$var$writeCmd("AT+SETINDI=" + t), $0a8d6484c996af74$var$readLoop("at_setindi");
 }, $0a8d6484c996af74$export$4cc0d5d507dae573 = function(t) {
-    //arr = [];
+    $0a8d6484c996af74$var$arr = [];
     return $0a8d6484c996af74$var$writeCmd(t ? "AT+SPSSEND=" + t : "AT+SPSSEND"), $0a8d6484c996af74$var$readLoop("at_spssend");
 }, $0a8d6484c996af74$export$f6211e4e6119f247 = function(t) {
+    $0a8d6484c996af74$var$arr = [];
     return $0a8d6484c996af74$var$writeCmd(t ? "AT+SPSSEND=" + t : "AT+SPSSEND"), $0a8d6484c996af74$var$readLoop("at_spssend2");
 }, $0a8d6484c996af74$export$628e53bf421c376d = function(t) {
     return $0a8d6484c996af74$var$writeCmd(t ? "AT+TARGETCONN=" + t : "AT+TARGETCONN"), $0a8d6484c996af74$var$readLoop("at_targetconn");
@@ -648,9 +650,9 @@ async function $0a8d6484c996af74$var$readLoop(t, e) {
                 if (2 == $0a8d6484c996af74$var$arr.length) return $0a8d6484c996af74$var$arr;
                 break;
             case "at_spssend2":
-                if (2 == $0a8d6484c996af74$var$arr.length) return $0a8d6484c996af74$var$arr;
+                if ($0a8d6484c996af74$var$arr.includes("[Sent]")) return $0a8d6484c996af74$var$arr;
             case "at_spssend":
-                if (4 == $0a8d6484c996af74$var$arr.length) return $0a8d6484c996af74$var$arr;
+                if ($0a8d6484c996af74$var$arr.includes("[Sent]")) return $0a8d6484c996af74$var$arr;
                 break;
             case "at_targetconn":
                 if (2 == $0a8d6484c996af74$var$arr.length) return $0a8d6484c996af74$var$arr;
@@ -734,7 +736,9 @@ document.getElementById("connectToBoardID").addEventListener("click", function()
         $0a8d6484c996af74$export$1994bcd1c6f789f1();
         $0a8d6484c996af74$export$c1d8aeaf43388b4d().then((y)=>{
             document.getElementById("terminal").innerHTML += y + "<br/>";
+            console.log(theID);
             $0a8d6484c996af74$export$84eb2cc27f02edba("5B070614" + theID, 3).then((z)=>{
+                console.log(z);
                 let lastVal = z[z.length - 2];
                 if (lastVal.includes("[")) {
                     $6ad8ad463c5b160a$var$macAddress = lastVal.substring(1, 18);
@@ -764,7 +768,6 @@ document.getElementById("connectToBoardID").addEventListener("click", function()
 const $6ad8ad463c5b160a$var$readBtn = (msgID, btnName)=>{
     document.getElementById("loader").style.display = "block";
     $0a8d6484c996af74$export$4cc0d5d507dae573("AREV=" + msgID).then((x)=>{
-        console.log(x);
         setTimeout(()=>{
             $0a8d6484c996af74$export$4cc0d5d507dae573("AREV=" + msgID).then((y)=>{
                 setTimeout(()=>{
@@ -772,7 +775,7 @@ const $6ad8ad463c5b160a$var$readBtn = (msgID, btnName)=>{
                         setTimeout(()=>{
                             console.log(z);
                             document.getElementById("terminal").innerHTML += z + "<br/>";
-                            document.getElementById(btnName + "_READ_DATA").innerHTML = z[z.length - 1];
+                            document.getElementById(btnName + "_READ_DATA").innerHTML = z[z.length - 3];
                             document.getElementById("loader").style.display = "none";
                         }, 500);
                     }).catch((err)=>{
@@ -1224,4 +1227,4 @@ document.getElementById("DAC_OUT_MAX_FLOW_CONF_BTN").addEventListener("click", (
 });
 
 
-//# sourceMappingURL=index.64fb4917.js.map
+//# sourceMappingURL=index.d424486c.js.map

@@ -77,8 +77,9 @@ document
       my_dongle.at_gapdisconnectall();
       my_dongle.at_dual().then((y) => {
         document.getElementById("terminal").innerHTML += y + "<br/>";
-
+        console.log(theID);
         my_dongle.at_findscandata("5B070614" + theID, 3).then((z) => {
+          console.log(z);
           let lastVal = z[z.length - 2];
           if (lastVal.includes("[")) {
             macAddress = lastVal.substring(1, 18);
@@ -119,7 +120,6 @@ const readBtn = (msgID, btnName) => {
   my_dongle
     .at_spssend("AREV=" + msgID)
     .then((x) => {
-      console.log(x);
       setTimeout(() => {
         my_dongle
           .at_spssend("AREV=" + msgID)
@@ -133,7 +133,7 @@ const readBtn = (msgID, btnName) => {
                     document.getElementById("terminal").innerHTML +=
                       z + "<br/>";
                     document.getElementById(btnName + "_READ_DATA").innerHTML =
-                      z[z.length - 1];
+                      z[z.length - 3];
                     document.getElementById("loader").style.display = "none";
                   }, 500);
                 })
