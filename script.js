@@ -116,24 +116,40 @@ document
 
 const readBtn = (msgID, btnName) => {
   document.getElementById("loader").style.display = "block";
-  my_dongle.at_spssend("AREV=" + msgID).then((x) => {
-    console.log(x);
-    setTimeout(() => {
-      my_dongle.at_spssend("AREV=" + msgID).then((y) => {
-        setTimeout(() => {
-          my_dongle.at_spssend("AREV=" + msgID).then((z) => {
+  my_dongle
+    .at_spssend("AREV=" + msgID)
+    .then((x) => {
+      console.log(x);
+      setTimeout(() => {
+        my_dongle
+          .at_spssend("AREV=" + msgID)
+          .then((y) => {
             setTimeout(() => {
-              console.log(z);
-              document.getElementById("terminal").innerHTML += z + "<br/>";
-              document.getElementById(btnName + "_READ_DATA").innerHTML =
-                z[z.length - 1];
-              document.getElementById("loader").style.display = "none";
+              my_dongle
+                .at_spssend("AREV=" + msgID)
+                .then((z) => {
+                  setTimeout(() => {
+                    console.log(z);
+                    document.getElementById("terminal").innerHTML +=
+                      z + "<br/>";
+                    document.getElementById(btnName + "_READ_DATA").innerHTML =
+                      z[z.length - 1];
+                    document.getElementById("loader").style.display = "none";
+                  }, 500);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
             }, 500);
+          })
+          .catch((err) => {
+            console.log(err);
           });
-        }, 500);
-      });
-    }, 500);
-  });
+      }, 500);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 const confBtn = (writeID, readID, btnName) => {

@@ -648,7 +648,7 @@ async function $0a8d6484c996af74$var$readLoop(t, e) {
                 if (2 == $0a8d6484c996af74$var$arr.length) return $0a8d6484c996af74$var$arr;
                 break;
             case "at_spssend2":
-                if ($0a8d6484c996af74$var$arr.includes("[Sent]")) return $0a8d6484c996af74$var$arr;
+                if (2 == $0a8d6484c996af74$var$arr.length) return $0a8d6484c996af74$var$arr;
             case "at_spssend":
                 if (4 == $0a8d6484c996af74$var$arr.length) return $0a8d6484c996af74$var$arr;
                 break;
@@ -775,10 +775,16 @@ const $6ad8ad463c5b160a$var$readBtn = (msgID, btnName)=>{
                             document.getElementById(btnName + "_READ_DATA").innerHTML = z[z.length - 1];
                             document.getElementById("loader").style.display = "none";
                         }, 500);
+                    }).catch((err)=>{
+                        console.log(err);
                     });
                 }, 500);
+            }).catch((err)=>{
+                console.log(err);
             });
         }, 500);
+    }).catch((err)=>{
+        console.log(err);
     });
 };
 const $6ad8ad463c5b160a$var$confBtn = (writeID, readID, btnName)=>{
@@ -1218,4 +1224,4 @@ document.getElementById("DAC_OUT_MAX_FLOW_CONF_BTN").addEventListener("click", (
 });
 
 
-//# sourceMappingURL=index.6ecf7fb3.js.map
+//# sourceMappingURL=index.64fb4917.js.map
