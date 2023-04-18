@@ -762,8 +762,8 @@
                     <td>
                       <div class="row g-3 align-items-center singleItem">
                         <div class="col-3">
-                          <label for="MAX_STEP_POS" class="col-form-label"
-                            >MAX_STEP_POS</label
+                          <label for="ACTUAL_POS" class="col-form-label"
+                            >ACTUAL_POS</label
                           >
                         </div>
                         <div class="col-3">
@@ -773,10 +773,10 @@
                             >
                             <input
                               type="text"
-                              id="MAX_STEP_POS_VALUE"
+                              id="ACTUAL_POS_VALUE"
                               class="form-control"
-                              placeholder="size : 2"
-                              maxlength="4"
+                              placeholder="size : 4"
+                              maxlength="8"
                               onkeyup="this.value = this.value.toUpperCase();"
                             />
                           </div>
@@ -784,7 +784,7 @@
                         <div class="col-2">
                           <button
                             class="btn btn-success"
-                            id="MAX_STEP_POS_CONF_BTN"
+                            id="ACTUAL_POS_CONF_BTN"
                           >
                             Config
                           </button>
@@ -793,16 +793,17 @@
                           <strong>Current Value :</strong>
                           <button
                             class="btn btn-sm btn-warning"
-                            id="MAX_STEP_POS_READ_BTN"
+                            id="ACTUAL_POS_READ_BTN"
                           >
                             Read
                           </button>
-                          <span id="MAX_STEP_POS_READ_DATA"></span>
+                          <span id="ACTUAL_POS_READ_DATA"></span>
                         </div>
                       </div>
                       <!-- end single item -->
                     </td>
                   </tr>
+
                   <tr>
                     <td>
                       <div class="row g-3 align-items-center singleItem">
@@ -1718,8 +1719,8 @@
               <td>
                 <div class="row g-3 align-items-center singleItem">
                   <div class="col-3">
-                    <label for="ACTUAL_POS" class="col-form-label"
-                      >ACTUAL_POS</label
+                    <label for="MAX_STEP_POS" class="col-form-label"
+                      >MAX_STEP_POS</label
                     >
                   </div>
                   <div class="col-3">
@@ -1729,16 +1730,16 @@
                       >
                       <input
                         type="text"
-                        id="ACTUAL_POS_VALUE"
+                        id="MAX_STEP_POS_VALUE"
                         class="form-control"
-                        placeholder="size : 4"
-                        maxlength="8"
+                        placeholder="size : 2"
+                        maxlength="4"
                         onkeyup="this.value = this.value.toUpperCase();"
                       />
                     </div>
                   </div>
                   <div class="col-2">
-                    <button class="btn btn-success" id="ACTUAL_POS_CONF_BTN">
+                    <button class="btn btn-success" id="MAX_STEP_POS_CONF_BTN">
                       Config
                     </button>
                   </div>
@@ -1746,11 +1747,11 @@
                     <strong>Current Value :</strong>
                     <button
                       class="btn btn-sm btn-warning"
-                      id="ACTUAL_POS_READ_BTN"
+                      id="MAX_STEP_POS_READ_BTN"
                     >
                       Read
                     </button>
-                    <span id="ACTUAL_POS_READ_DATA"></span>
+                    <span id="MAX_STEP_POS_READ_DATA"></span>
                   </div>
                 </div>
                 <!-- end single item -->
@@ -2476,7 +2477,7 @@
               </td>
             </tr>
           </table>
-          <div class="text-end">v.1.0</div>
+          <div class="text-end">v.1.4</div>
           <hr />
           <div class="text-end d-none">
             <button class="btn btn-primary w-25 btn-lg">Save all</button>
