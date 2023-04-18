@@ -975,7 +975,14 @@ var readBtn = function readBtn(msgID, btnName) {
             setTimeout(function () {
               console.log(z);
               document.getElementById("terminal").innerHTML += z + "<br/>";
-              document.getElementById(btnName + "_READ_DATA").innerHTML = z[z.length - 3];
+              console.log();
+
+              if (z[z.length - 1] === '[Sent]') {
+                document.getElementById(btnName + "_READ_DATA").innerHTML = z[z.length - 3];
+              } else {
+                document.getElementById(btnName + "_READ_DATA").innerHTML = z[z.length - 1];
+              }
+
               document.getElementById("loader").style.display = "none";
             }, 500);
           }).catch(function (err) {
@@ -1466,7 +1473,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61885" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63395" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -132,8 +132,14 @@ const readBtn = (msgID, btnName) => {
                     console.log(z);
                     document.getElementById("terminal").innerHTML +=
                       z + "<br/>";
-                    document.getElementById(btnName + "_READ_DATA").innerHTML =
-                      z[z.length - 3];
+                      console.log()
+                      if(z[z.length - 1]==='[Sent]'){
+                        document.getElementById(btnName + "_READ_DATA").innerHTML =
+                        z[z.length - 3];
+                      }else{
+                        document.getElementById(btnName + "_READ_DATA").innerHTML =
+                        z[z.length - 1];
+                      }
                     document.getElementById("loader").style.display = "none";
                   }, 500);
                 })
