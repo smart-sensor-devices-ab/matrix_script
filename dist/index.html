@@ -100,6 +100,18 @@
                 >
                   Actual Values
                 </button>
+                <button
+                  class="nav-link"
+                  id="nav-motor-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-motor"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-motor"
+                  aria-selected="false"
+                >
+                  Motor Control
+                </button>
               </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -1414,7 +1426,6 @@
                               >HEX</span
                             >
                             <input
-                              disabled
                               type="text"
                               id="FACTORY_RESET_VALUE"
                               class="form-control"
@@ -1426,7 +1437,6 @@
                         </div>
                         <div class="col-2">
                           <button
-                            disabled
                             class="btn btn-success"
                             id="FACTORY_RESET_CONF_BTN"
                           >
@@ -1471,6 +1481,7 @@
                               >Dec</span
                             >
                             <input
+                              disabled
                               type="text"
                               id="ACT_FLOW_VALUE"
                               class="form-control"
@@ -1482,6 +1493,7 @@
                         </div>
                         <div class="col-2">
                           <button
+                            disabled
                             class="btn btn-success"
                             id="ACT_FLOW_CONF_BTN"
                           >
@@ -1721,6 +1733,76 @@
                             Read
                           </button>
                           <span id="K_VALUE_READ_DATA"></span>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div
+                class="tab-pane fade p-3"
+                id="nav-motor"
+                role="tabpanel"
+                aria-labelledby="nav-motor-tab"
+                tabindex="0"
+              >
+                <table class="table table-striped">
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="CLOSE_MOTOR" class="col-form-label"
+                            >Closes the damper</label
+                          >
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="CLOSE_MOTOR_CONF_BTN"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="OPEN_MOTOR" class="col-form-label"
+                            >Open the damper</label
+                          >
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="OPEN_MOTOR_CONF_BTN"
+                          >
+                            Open
+                          </button>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="STOP_MOTOR" class="col-form-label"
+                            >Stops motor</label
+                          >
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="STOP_MOTOR_CONF_BTN"
+                          >
+                            Stop
+                          </button>
                         </div>
                       </div>
                       <!-- end single item -->

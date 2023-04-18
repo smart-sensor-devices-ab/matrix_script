@@ -1355,19 +1355,24 @@ var readBtn = function readBtn(msgID, btnName) {
               }
               let theDt =dataFromMatrix.split('=')[1]
               if(btnName==='FIRMWARE_REV'){
-                theDt=Number(theDt.substr(0,2)+'.'+theDt.substr(2,3))
+                theDt=parseInt(theDt.substr(0,2),16)+'.'+parseInt(theDt.substr(2,3),16)
               }
               if(btnName==='K_VALUE'){
-                theDt=Number(theDt.substr(0,2)+'.'+theDt.substr(2,3))
+                theDt=parseFloat(theDt.substr(0,2)+'.'+theDt.substr(2,3))
               }
-              if(btnName==='RESET_COUNTER'){
+              if(btnName==='DAC_OUT_MIN_FLOW' ||btnName==='DAC_OUT_MAX_FLOW' ||btnName==='MIN_FLOW' ||btnName==='MAX_FLOW'  ){
+                theDt=parseInt(theDt.substr(2,3)+theDt.substr(0,2),16)/100 +' l/s'
+              }
+              
+              if(btnName==='RESET_COUNTER'||btnName==='TOL_FLOW'){
                 theDt= parseInt(theDt, 16)
               }
+              
               if(btnName==='HAS_SENSOR'){
                 theDt= theDt=='FF'?'False':'True'
               }
               if(btnName==='FACTORY_RESET'){
-                theDt= theDt=='FF'?'FACTORY_RESET':'Enabled'
+                theDt= theDt=='FF'?'Disabled':'Enabled'
               }
               if(btnName==='MASTER_SLAVE_ROLE'){
                  theDt=='FF'?'Undefined':theDt=='01'?'Master':'Slave'
