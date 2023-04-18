@@ -687,11 +687,12 @@
                               >Dec</span
                             >
                             <input
-                              type="text"
+                              type="number"
                               id="FLOOR_TH_VALUE"
                               class="form-control"
-                              placeholder="size : 1"
-                              maxlength="2"
+                              placeholder="0 to 100"
+                              min="0"
+                              max="100"
                               onkeyup="this.value = this.value.toUpperCase();"
                             />
                           </div>
@@ -732,11 +733,13 @@
                               >Dec</span
                             >
                             <input
-                              type="text"
+                              type="number"
                               id="ROOF_TH_VALUE"
                               class="form-control"
                               placeholder="size : 1"
-                              maxlength="2"
+                              placeholder="0 to 100"
+                              min="0"
+                              max="100"
                               onkeyup="this.value = this.value.toUpperCase();"
                             />
                           </div>
@@ -822,11 +825,12 @@
                               >Dec</span
                             >
                             <input
-                              type="text"
+                              type="number"
                               id="V_MAX_VALUE"
                               class="form-control"
-                              placeholder="size : 2"
-                              maxlength="4"
+                              placeholder="1000 to 9000"
+                              min="1000"
+                              max="9000"
                               onkeyup="this.value = this.value.toUpperCase();"
                             />
                           </div>
@@ -864,11 +868,12 @@
                               >Dec</span
                             >
                             <input
-                              type="text"
+                              type="number"
                               id="I_RUN_VALUE"
                               class="form-control"
-                              placeholder="size : 1"
-                              maxlength="2"
+                              placeholder="12 to 32"
+                              min="12"
+                              max="32"
                               onkeyup="this.value = this.value.toUpperCase();"
                             />
                           </div>
@@ -1315,11 +1320,12 @@
                               >Dec</span
                             >
                             <input
-                              type="text"
+                              type="number"
                               id="O_PRESSURE_VALUE"
                               class="form-control"
-                              placeholder="size : 2"
-                              maxlength="4"
+                              placeholder="0 to 100"
+                              min="0"
+                              max="100"
                               onkeyup="this.value = this.value.toUpperCase();"
                             />
                           </div>
@@ -1363,8 +1369,9 @@
                               type="text"
                               id="K_FACTOR_VALUE"
                               class="form-control"
-                              placeholder="size : 2"
-                              maxlength="4"
+                              placeholder="0.7 to 70.0"
+                              min="0.7"
+                              max="70.0"
                               onkeyup="this.value = this.value.toUpperCase();"
                             />
                           </div>
@@ -1407,6 +1414,7 @@
                               >HEX</span
                             >
                             <input
+                              disabled
                               type="text"
                               id="FACTORY_RESET_VALUE"
                               class="form-control"
@@ -1418,6 +1426,7 @@
                         </div>
                         <div class="col-2">
                           <button
+                            disabled
                             class="btn btn-success"
                             id="FACTORY_RESET_CONF_BTN"
                           >
@@ -1507,6 +1516,7 @@
                               >Dec</span
                             >
                             <input
+                              disabled
                               type="text"
                               id="PRESSURE_VALUE"
                               class="form-control"
@@ -1518,6 +1528,7 @@
                         </div>
                         <div class="col-2">
                           <button
+                            disabled
                             class="btn btn-success"
                             id="PRESSURE_CONF_BTN"
                           >
@@ -1597,6 +1608,7 @@
                               >Dec</span
                             >
                             <input
+                              disabled
                               type="text"
                               id="TOL_FLOW_VALUE"
                               class="form-control"
@@ -1608,6 +1620,7 @@
                         </div>
                         <div class="col-2">
                           <button
+                            disabled
                             class="btn btn-success"
                             id="TOL_FLOW_CONF_BTN"
                           >
@@ -2500,7 +2513,7 @@
         aria-atomic="true"
       >
         <div class="toast-header">
-          <strong class="me-auto">Updated</strong>
+          <strong class="me-auto" id="updateTitle">Updated</strong>
           <button
             type="button"
             class="btn-close"
@@ -2508,7 +2521,7 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="toast-body">Value updated successfully</div>
+        <div class="toast-body" id="updateText">Value updated successfully</div>
       </div>
     </div>
     <script src="./bootstrap.bundle.min.f3c2f16f.js"></script>

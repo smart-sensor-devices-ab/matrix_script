@@ -5,6 +5,373 @@
 //
 // anything defined in a previous bundle is accessed via the
 // orig method which is the require for previous bundles
+export const configObject = [
+  {
+    id: 0,
+    name: "BOARDID",
+    size: 3,
+    value: "FFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 1,
+    name: "PRODUCTID",
+    size: 4,
+    value: "FFFFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 2,
+    name: "SERIAL_NUMBER",
+    size: 4,
+    value: "FFFFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 3,
+    name: "FIRMWARE_REV",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 4,
+    name: "ARTICLE_NUMBER",
+    size: 20,
+    value: "FFFFFFFFFFFFFFFFFFFFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 5,
+    name: "K_FACTOR",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 6,
+    name: "FACTORY_RESET",
+    size: 1,
+    value: "FF",
+    type: "HEX",
+  },
+  {
+    id: 7,
+    name: "ACTUAL_POS",
+    size: 4,
+    value: "FFFFFFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 8,
+    name: "RESET_COUNTER",
+    size: 2,
+    value: "FFFF",
+    type: "HEX",
+  },
+  {
+    id: 9,
+    name: "FLOOR_TH",
+    size: 1,
+    value: "FF",
+    type: "DECIMAL",
+  },
+  {
+    id: 10,
+    name: "ROOF_TH",
+    size: 1,
+    value: "FF",
+    type: "DECIMAL",
+  },
+  {
+    id: 11,
+    name: "MAX_STEP_POS",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 12,
+    name: "V_MAX",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 13,
+    name: "I_RUN",
+    size: 1,
+    value: "FF",
+    type: "DECIMAL",
+  },
+  {
+    id: 14,
+    name: "TIME_MIN_TO_MAX",
+    size: 1,
+    value: "FF",
+    type: "DECIMAL",
+  },
+  {
+    id: 15,
+    name: "TIME_MAX_TO_MIN",
+    size: 1,
+    value: "FF",
+    type: "DECIMAL",
+  },
+  {
+    id: 16,
+    name: "FACTORY_SET_DATE",
+    size: 4,
+    value: "FFFFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 17,
+    name: "LAST_CONFIG",
+    size: 2,
+    value: "FFFF",
+    type: "HEX",
+  },
+  {
+    id: 18,
+    name: "PROJECT_NUMBER",
+    size: 2,
+    value: "FFFF",
+    type: "HEX",
+  },
+  {
+    id: 19,
+    name: "LAST_CALIBRATION",
+    size: 2,
+    value: "FFFF",
+    type: "HEX",
+  },
+  {
+    id: 20,
+    name: "NUM_MATRIX_PLATES",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 21,
+    name: "ERROR_MESSAGE",
+    size: 2,
+    value: "FFFF",
+    type: "HEX",
+  },
+  {
+    id: 22,
+    name: "MASTER_SLAVE_ROLE",
+    size: 1,
+    value: "FF",
+    type: "HEX",
+  },
+  {
+    id: 23,
+    name: "INTERNAL_EXTERNAL",
+    size: 2,
+    value: "FFFF",
+    type: "HEX",
+  },
+  {
+    id: 24,
+    name: "ACT_FLOW",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 25,
+    name: "PRESSURE",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 26,
+    name: "SLAVE_MAC_ADDR1",
+    size: 6,
+    value: "FFFFFFFFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 27,
+    name: "SLAVE_MAC_ADDR2",
+    size: 6,
+    value: "FFFFFFFFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 28,
+    name: "SLAVE_MAC_ADDR3",
+    size: 6,
+    value: "FFFFFFFFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 29,
+    name: "SLAVE_MAC_ADDR4",
+    size: 6,
+    value: "FFFFFFFFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 30,
+    name: "SLAVE_MAC_ADDR5",
+    size: 6,
+    value: "FFFFFFFFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 31,
+    name: "SLAVE_MAC_ADDR6",
+    size: 6,
+    value: "FFFFFFFFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 32,
+    name: "SLAVE_MAC_ADDR7",
+    size: 6,
+    value: "FFFFFFFFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 33,
+    name: "MASTER_NUM_SLAVE_CONN",
+    size: 1,
+    value: "FF",
+    type: "DECIMAL",
+  },
+  {
+    id: 34,
+    name: "SLAVE_BOARDID_1",
+    size: 3,
+    value: "FFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 35,
+    name: "SLAVE_BOARDID_2",
+    size: 3,
+    value: "FFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 36,
+    name: "SLAVE_BOARDID_3",
+    size: 3,
+    value: "FFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 37,
+    name: "SLAVE_BOARDID_4",
+    size: 3,
+    value: "FFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 38,
+    name: "SLAVE_BOARDID_5",
+    size: 3,
+    value: "FFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 39,
+    name: "SLAVE_BOARDID_6",
+    size: 3,
+    value: "FFFFFF",
+    type: "HEX",
+  },
+  {
+    id: 50,
+    name: "HAS_SENSOR",
+    size: 1,
+    value: "FF",
+    type: "HEX",
+  },
+  {
+    id: 51,
+    name: "HAS_MODEM",
+    size: 1,
+    value: "FF",
+    type: "HEX",
+  },
+  {
+    id: 52,
+    name: "MIN_FLOW",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 53,
+    name: "REQ_FLOW",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 54,
+    name: "TOL_FLOW",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 55,
+    name: "SIGNAL",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 56,
+    name: "O_PRESSURE",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 57,
+    name: "K_VALUE",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 58,
+    name: "CONTROL_TYPE",
+    size: 1,
+    value: "FF",
+    type: "HEX",
+  },
+  {
+    id: 59,
+    name: "MAX_FLOW",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 60,
+    name: "DAC_OUT_MIN_FLOW",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+  {
+    id: 61,
+    name: "DAC_OUT_MAX_FLOW",
+    size: 2,
+    value: "FFFF",
+    type: "DECIMAL",
+  },
+];
+
 parcelRequire = (function (modules, cache, entry, globalName) {
   // Save the require from previous bundle to this closure if any
   var previousRequire = typeof parcelRequire === 'function' && parcelRequire;
@@ -964,8 +1331,13 @@ document.getElementById("connectToBoardID").addEventListener("click", function (
     });
   });
 });
+const getTheType=((title)=>{
+  let k = configObject.filter((x)=>x.name==title)
+  return k[0].type
+})
 
 var readBtn = function readBtn(msgID, btnName) {
+  
   document.getElementById("loader").style.display = "block";
   my_dongle.at_spssend("AREV=" + msgID).then(function (x) {
     setTimeout(function () {
@@ -975,13 +1347,49 @@ var readBtn = function readBtn(msgID, btnName) {
             setTimeout(function () {
               console.log(z);
               document.getElementById("terminal").innerHTML += z + "<br/>";
-              console.log();
-
-              if (z[z.length - 1] === '[Sent]') {
-                document.getElementById(btnName + "_READ_DATA").innerHTML = z[z.length - 3];
+              let dataFromMatrix = "";
+              if (z[z.length - 1] === "[Sent]") {
+                dataFromMatrix = z[z.length - 3];
               } else {
-                document.getElementById(btnName + "_READ_DATA").innerHTML = z[z.length - 1];
+                dataFromMatrix = z[z.length - 1];
               }
+              let theDt =dataFromMatrix.split('=')[1]
+              if(btnName==='FIRMWARE_REV'){
+                theDt=Number(theDt.substr(0,2)+'.'+theDt.substr(2,3))
+              }
+              if(btnName==='K_VALUE'){
+                theDt=Number(theDt.substr(0,2)+'.'+theDt.substr(2,3))
+              }
+              if(btnName==='RESET_COUNTER'){
+                theDt= parseInt(theDt, 16)
+              }
+              if(btnName==='HAS_SENSOR'){
+                theDt= theDt=='FF'?'False':'True'
+              }
+              if(btnName==='FACTORY_RESET'){
+                theDt= theDt=='FF'?'FACTORY_RESET':'Enabled'
+              }
+              if(btnName==='MASTER_SLAVE_ROLE'){
+                 theDt=='FF'?'Undefined':theDt=='01'?'Master':'Slave'
+              }
+              if(btnName==='CONTROL_TYPE'){
+                theDt=='FF'?'Undefined':theDt=='01'?'VARIABLE_FLOW (VAV)':'VARIABLE_FLOW (VAV)'
+             }
+              if(btnName==='ACTUAL_POS'){
+                function bigEndianToLittleEndian(value) {
+                  return ((value & 0xFF) << 24)
+                       | ((value & 0xFF00) << 8)
+                       | ((value >> 8) & 0xFF00)
+                       | ((value >> 24) & 0xFF);
+                }
+                 theDt=bigEndianToLittleEndian('0x'+theDt);
+              }
+              
+              document.getElementById(
+                btnName + "_READ_DATA"
+              ).innerHTML = theDt;
+
+             
 
               document.getElementById("loader").style.display = "none";
             }, 500);
@@ -1033,6 +1441,23 @@ var confBtnDec2 = function confBtnDec2(writeID, readID, btnName) {
   var theVal = document.getElementById(btnName + "_VALUE").value;
 
   if (theVal) {
+    theVal = decimalToHex2ByteLittleEndian(theVal);
+    console.log(theVal);
+    my_dongle.at_spssend("CFGE=" + writeID + "=" + theVal).then(function (res) {
+      document.getElementById("terminal").innerHTML += res + "<br/>";
+      readBtn(readID, btnName);
+      document.getElementById("liveToast").classList.add("show");
+      setTimeout(function () {
+        document.getElementById("liveToast").classList.remove("show");
+      }, 4000);
+    });
+  }
+};
+var confBtnDecNoModify = function confBtnDecNoModify(writeID, readID, btnName) {
+  var theVal = document.getElementById(btnName + "_VALUE").value;
+
+  if (theVal) {
+    theVal=theVal/100
     theVal = decimalToHex2ByteLittleEndian(theVal);
     console.log(theVal);
     my_dongle.at_spssend("CFGE=" + writeID + "=" + theVal).then(function (res) {
@@ -1148,7 +1573,17 @@ document.getElementById("FLOOR_TH_READ_BTN").addEventListener("click", function 
   readBtn("9 ", "FLOOR_TH");
 });
 document.getElementById("FLOOR_TH_CONF_BTN").addEventListener("click", function () {
-  confBtnDec2Hex("9", "9 ", "FLOOR_TH", 1);
+  if (
+    document.getElementById("FLOOR_TH_VALUE").value >= 0 &&
+    document.getElementById("FLOOR_TH_VALUE").value <= 100
+  ) {
+    confBtnDec2Hex("9", "9 ", "FLOOR_TH", 1);
+  } else {
+    document.getElementById("updateTitle").innerHTML =
+      "Update failed";
+    document.getElementById("updateText").innerHTML =
+      "Value should be between 0 to 100";
+  }
 }); //ROOF_TH
 
 document.getElementById("ROOF_TH_READ_BTN").addEventListener("click", function () {
@@ -1156,7 +1591,17 @@ document.getElementById("ROOF_TH_READ_BTN").addEventListener("click", function (
   readBtn("10 ", "ROOF_TH");
 });
 document.getElementById("ROOF_TH_CONF_BTN").addEventListener("click", function () {
-  confBtnDec2Hex("10", "10 ", "ROOF_TH", 1);
+  if (
+    document.getElementById("ROOF_TH_VALUE").value >= 0 &&
+    document.getElementById("ROOF_TH_VALUE").value <= 100
+  ) {
+    confBtnDec2Hex("10", "10 ", "ROOF_TH", 1);
+  } else {
+    document.getElementById("updateTitle").innerHTML =
+      "Update failed";
+    document.getElementById("updateText").innerHTML =
+      "Value should be between 0 to 100";
+  }
 }); //MAX_STEP_POS
 
 document.getElementById("MAX_STEP_POS_READ_BTN").addEventListener("click", function () {
@@ -1170,7 +1615,7 @@ document.getElementById("V_MAX_READ_BTN").addEventListener("click", function () 
   readBtn("12 ", "V_MAX");
 });
 document.getElementById("V_MAX_CONF_BTN").addEventListener("click", function () {
-  confBtnDec2("12", "12 ", "V_MAX");
+  confBtnDecNoModify("12", "12 ", "V_MAX");
 }); //I_RUN
 
 document.getElementById("I_RUN_READ_BTN").addEventListener("click", function () {
