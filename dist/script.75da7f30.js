@@ -1594,9 +1594,8 @@ When connected to several devices, the target connection decides which device yo
                                 parseInt(theDt.substr(2, 3), 16);
                             }
                             if (btnName === "K_VALUE") {
-                              theDt = parseFloat(
-                                theDt.substr(0, 2) + "." + theDt.substr(2, 3)
-                              );
+                              theDt = parseInt(theDt.substr(2, ) + theDt.substr(0, 2),16)/10
+                              
                             }
                             if (
                               btnName === "DAC_OUT_MIN_FLOW" ||
