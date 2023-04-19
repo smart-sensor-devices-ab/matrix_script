@@ -1501,7 +1501,7 @@ When connected to several devices, the target connection decides which device yo
                   document.getElementById("terminal").innerHTML += y + "<br/>";
                   console.log(theID);
                   my_dongle
-                    .at_findscandata("5B070614" + theID, 3)
+                    .at_findscandata("5B070614" + theID, 5)
                     .then(function (z) {
                       console.log(z);
                       var lastVal = z[z.length - 2];
@@ -1584,9 +1584,9 @@ When connected to several devices, the target connection decides which device yo
                             } else {
                               dataFromMatrix = z[z.length - 1];
                             }
-                            let arr = dataFromMatrix.split("=")
-                            
-                            let theDt = arr[arr.length-2];
+                            let arr = dataFromMatrix.split("=");
+
+                            let theDt = arr[arr.length - 2];
                             if (btnName === "FIRMWARE_REV") {
                               theDt =
                                 parseInt(theDt.substr(0, 2), 16) +
@@ -2397,118 +2397,105 @@ When connected to several devices, the target connection decides which device yo
           .addEventListener("click", function () {
             confBtnDec2("61", "61 ", "DAC_OUT_MAX_FLOW");
           });
+        const readBtnMotor = (msg, btn) => {
+          my_dongle.at_spssend(msg).then(function () {
+            setTimeout(() => {
+              my_dongle.at_spssend(msg).then(function () {
+                setTimeout(() => {
+                  my_dongle.at_spssend(msg).then(function (z) {
+                    document.getElementById("terminal").innerHTML +=
+                      z + "<br/>";
+                    
+                    let dataFromMatrix = "";
+                    setTimeout(()=>{
+                      console.log(z);
+                      if (z[z.length - 1] === "[Sent]") {
+                      dataFromMatrix = z[z.length - 3];
+                    } else {
+                      dataFromMatrix = z[z.length - 1];
+                    }
+                    document.getElementById(btn).innerHTML = dataFromMatrix;
+                  },500)
+                    
+                    document.getElementById("liveToast").classList.add("show");
+                    setTimeout(function () {
+                      if (
+                        btn == "FIRMWARE_RESET_DATA" ||
+                        btn == "FIRMWARE_UPDATE_DATA"
+                      ) {
+                        my_dongle.atr().then(function () {
+                          location.reload();
+                        });
+                      }
+                      document
+                        .getElementById("liveToast")
+                        .classList.remove("show");
+                    }, 4000);
+                  });
+                }, 500);
+              });
+            }, 500);
+          });
+        };
         //Close Motor
         document
           .getElementById("CLOSE_MOTOR_CONF_BTN")
           .addEventListener("click", function () {
-            my_dongle.at_spssend2("ACM    ").then(function (res) {
-              document.getElementById("terminal").innerHTML += res + "<br/>";
-              document.getElementById("liveToast").classList.add("show");
-              setTimeout(function () {
-                document.getElementById("liveToast").classList.remove("show");
-              }, 4000);
-            });
+            readBtnMotor("ACM    ", "CLOSE_MOTOR_DATA");
           });
         //open Motor
         document
           .getElementById("OPEN_MOTOR_CONF_BTN")
           .addEventListener("click", function () {
-            my_dongle.at_spssend2("AOM    ").then(function (res) {
-              document.getElementById("terminal").innerHTML += res + "<br/>";
-              document.getElementById("liveToast").classList.add("show");
-              setTimeout(function () {
-                document.getElementById("liveToast").classList.remove("show");
-              }, 4000);
-            });
+            readBtnMotor("AOM    ", "OPEN_MOTOR_DATA");
           });
         //stop Motor
         document
           .getElementById("STOP_MOTOR_CONF_BTN")
           .addEventListener("click", function () {
-            my_dongle.at_spssend2("ASM    ").then(function (res) {
-              document.getElementById("terminal").innerHTML += res + "<br/>";
-              document.getElementById("liveToast").classList.add("show");
-              setTimeout(function () {
-                document.getElementById("liveToast").classList.remove("show");
-              }, 4000);
-            });
+            readBtnMotor("ASM    ", "STOP_MOTOR_DATA");
           });
         //firmware restart
         document
           .getElementById("FIRMWARE_RESET_CONF_BTN")
           .addEventListener("click", function () {
-            my_dongle.at_spssend2("ARESET    ").then(function (res) {
-              document.getElementById("terminal").innerHTML += res + "<br/>";
-              document.getElementById("liveToast").classList.add("show");
-              setTimeout(function () {
-                my_dongle.atr().then(function () {
-                  location.reload();
-                });
-                document.getElementById("liveToast").classList.remove("show");
-              }, 4000);
-            });
+            readBtnMotor("ARESET    ", "FIRMWARE_RESET_DATA");
           });
         //firmware update
         document
           .getElementById("FIRMWARE_UPDATE_CONF_BTN")
           .addEventListener("click", function () {
-            my_dongle.at_spssend2("AFU    ").then(function (res) {
-              document.getElementById("terminal").innerHTML += res + "<br/>";
-              document.getElementById("liveToast").classList.add("show");
-              setTimeout(function () {
-                my_dongle.atr().then(function () {
-                  location.reload();
-                });
-                document.getElementById("liveToast").classList.remove("show");
-              }, 4000);
-            });
+            readBtnMotor("AFU    ", "FIRMWARE_UPDATE_DATA");
           });
+
         //Read Motor values
         document
           .getElementById("READ_MOTOR_CONF_BTN")
           .addEventListener("click", function () {
-            my_dongle.at_spssend2("ARM    ").then(function (res) {
-              document.getElementById("terminal").innerHTML += res + "<br/>";
-              document.getElementById("liveToast").classList.add("show");
-              setTimeout(function () {
-                document.getElementById("liveToast").classList.remove("show");
-              }, 4000);
-            });
+            readBtnMotor("ARM    ", "READ_MOTOR_DATA");
           });
         //check switch
         document
           .getElementById("CHECK_SWITCH_CONF_BTN")
           .addEventListener("click", function () {
-            my_dongle.at_spssend2("ACS    ").then(function (res) {
-              document.getElementById("terminal").innerHTML += res + "<br/>";
-              document.getElementById("liveToast").classList.add("show");
-              setTimeout(function () {
-                document.getElementById("liveToast").classList.remove("show");
-              }, 4000);
-            });
+            readBtnMotor("ACS    ", "CHECK_SWITCH_DATA");
           });
         //check adc
         document
           .getElementById("READ_ADC_CONF_BTN")
           .addEventListener("click", function () {
-            my_dongle.at_spssend2("ARADC    ").then(function (res) {
-              document.getElementById("terminal").innerHTML += res + "<br/>";
-              document.getElementById("liveToast").classList.add("show");
-              setTimeout(function () {
-                document.getElementById("liveToast").classList.remove("show");
-              }, 4000);
-            });
+            readBtnMotor("ARADC    ", "READ_ADC_DATA");
           });
         //MANUAL_CALIBRATION
         document
           .getElementById("MANUAL_CALIBRATION_CONF_BTN")
           .addEventListener("click", function () {
-            my_dongle.at_spssend2("AT+SPSSEND=CFGE=6=FF").then(function (res) {
+            my_dongle.at_spssend("AT+SPSSEND=CFGE=6=FF").then(function (res) {
               document.getElementById("terminal").innerHTML += res + "<br/>";
-              my_dongle.at_spssend2("AT+SPSSEND=ASM    ").then((res2) => {
+              my_dongle.at_spssend("AT+SPSSEND=ASM    ").then((res2) => {
                 document.getElementById("terminal").innerHTML += res2 + "<br/>";
                 my_dongle
-                  .at_spssend2("AT+SPSSEND=CFGE=7=00F00A00")
+                  .at_spssend("AT+SPSSEND=CFGE=7=00F00A00")
                   .then((res3) => {
                     document.getElementById("terminal").innerHTML +=
                       res3 + "<br/>";
@@ -2550,7 +2537,7 @@ When connected to several devices, the target connection decides which device yo
             }
             let crc = checksum(hexvalue);
             my_dongle
-              .at_spssend2("ASMV=" + theVal + "=" + crc)
+              .at_spssend("ASMV=" + theVal + "=" + crc + " ")
               .then(function (res) {
                 document.getElementById("terminal").innerHTML += res + "<br/>";
                 document.getElementById("liveToast").classList.add("show");
@@ -2570,7 +2557,7 @@ When connected to several devices, the target connection decides which device yo
             }
             let crc = checksum(hexvalue);
             my_dongle
-              .at_spssend2("ASMP=" + theVal + "=" + crc)
+              .at_spssend("ASMP=" + theVal + "=" + crc + " ")
               .then(function (res) {
                 document.getElementById("terminal").innerHTML += res + "<br/>";
                 document.getElementById("liveToast").classList.add("show");
