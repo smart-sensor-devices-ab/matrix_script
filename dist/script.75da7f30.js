@@ -2544,7 +2544,7 @@ When connected to several devices, the target connection decides which device yo
           .getElementById("SET_MOTOR_VEL_CONF_BTN")
           .addEventListener("click", function () {
             let theVal = document.getElementById("SET_MOTOR_VEL_VALUE").value;
-            let hexvalue = theVal.toString(16);
+            let hexvalue = parseInt(theVal).toString(16);
             if (hexvalue.length % 2 !== 0) {
               hexvalue = "0" + hexvalue;
             }
@@ -2564,7 +2564,7 @@ When connected to several devices, the target connection decides which device yo
           .getElementById("SET_MOTOR_PWR_CONF_BTN")
           .addEventListener("click", function () {
             let theVal = document.getElementById("SET_MOTOR_PWR_VALUE").value;
-            let hexvalue = theVal.toString(16);
+            let hexvalue = parseInt(theVal).toString(16);
             if (hexvalue.length % 2 !== 0) {
               hexvalue = "0" + hexvalue;
             }
