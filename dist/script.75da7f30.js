@@ -2431,6 +2431,55 @@ When connected to several devices, the target connection decides which device yo
                       } else {
                         dataFromMatrix = z[z.length - 1];
                       }
+                      let theVal;
+                      if (btn == "READ_MOTOR_DATA") {
+                        dataFromMatrix = dataFromMatrix.split("=").slice(1, 5);
+                        theVal =
+                          (
+                            parseInt(dataFromMatrix[1].split("_")[0]) / 716800
+                          ).toFixed(1) + " % closed";
+                        dataFromMatrix = dataFromMatrix.join("=");
+                        dataFromMatrix = dataFromMatrix + " (" + theVal + " )";
+                      }
+                      if (btn == "READ_ADC_DATA") {
+                        let op = "";
+                        let val1 = "";
+                        let val2 = "";
+                        let val3 = "";
+                        let val4 = "";
+                        let theData = dataFromMatrix.split("=");
+                        console.log(theData)
+                        if (theData.length == 3) {
+                          val1 = parseInt(theData[1]);
+                          val2 = parseInt(theData[2]);
+                          val3 = ((val1 * 1000) / 64600 / 100).toFixed(2);
+                          val4 = ((val2 * 1000) / 64600 / 100).toFixed(2);
+                          op =
+                            dataFromMatrix +
+                            " " +
+                            "(Current: " +
+                            val1 +
+                            " (" +
+                            val3 +
+                            "V)    Avg: " +
+                            val2 +
+                            " (" +
+                            val4 +
+                            "V))";
+                        } else {
+                          val1 = parseInt(theData[1]);
+                          val3 = ((val1 * 1000) / 64600 / 100).toFixed(2);
+                          op =
+                            dataFromMatrix +
+                            " " +
+                            "(Current: " +
+                            val1 +
+                            " (" +
+                            val3 +
+                            "V))";
+                        }
+                        dataFromMatrix = op;
+                      }
                       document.getElementById(btn).innerHTML = dataFromMatrix;
                     }, 500);
 
