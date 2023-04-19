@@ -1619,7 +1619,9 @@ When connected to several devices, the target connection decides which device yo
                             ) {
                               theDt = parseInt(theDt, 16);
                             }
-
+                            if (btnName === "K_FACTOR") {
+                              theDt = parseInt(theDt, 16) / 10;
+                            }
                             if (btnName === "HAS_SENSOR") {
                               theDt = theDt == "FF" ? "False" : "True";
                             }
