@@ -1593,9 +1593,19 @@ When connected to several devices, the target connection decides which device yo
                                 "." +
                                 parseInt(theDt.substr(2, 3), 16);
                             }
-                            if (btnName === "K_VALUE") {
-                              theDt = parseInt(theDt.substr(2, ) + theDt.substr(0, 2),16)/10
-                              
+                            if (
+                              btnName === "K_VALUE" ||
+                              btnName === "ACT_FLOW" ||
+                              btnName === "PRESSURE" ||
+                              btnName === "REQ_FLOW" ||
+                              btnName === "TOL_FLOW" ||
+                              btnName === "SIGNAL"
+                            ) {
+                              theDt =
+                                parseInt(
+                                  theDt.substr(2) + theDt.substr(0, 2),
+                                  16
+                                ) / 100;
                             }
                             if (
                               btnName === "DAC_OUT_MIN_FLOW" ||
@@ -2404,18 +2414,18 @@ When connected to several devices, the target connection decides which device yo
                   my_dongle.at_spssend(msg).then(function (z) {
                     document.getElementById("terminal").innerHTML +=
                       z + "<br/>";
-                    
+
                     let dataFromMatrix = "";
-                    setTimeout(()=>{
+                    setTimeout(() => {
                       console.log(z);
                       if (z[z.length - 1] === "[Sent]") {
-                      dataFromMatrix = z[z.length - 3];
-                    } else {
-                      dataFromMatrix = z[z.length - 1];
-                    }
-                    document.getElementById(btn).innerHTML = dataFromMatrix;
-                  },500)
-                    
+                        dataFromMatrix = z[z.length - 3];
+                      } else {
+                        dataFromMatrix = z[z.length - 1];
+                      }
+                      document.getElementById(btn).innerHTML = dataFromMatrix;
+                    }, 500);
+
                     document.getElementById("liveToast").classList.add("show");
                     setTimeout(function () {
                       if (
