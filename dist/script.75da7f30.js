@@ -1606,6 +1606,14 @@ When connected to several devices, the target connection decides which device yo
                                   theDt.substr(2) + theDt.substr(0, 2),
                                   16
                                 ) / 100;
+                              theDt +=
+                                btnName === "ACT_FLOW" ||
+                                btnName === "REQ_FLOW" ||
+                                btnName === "TOL_FLOW"
+                                  ? " l/s"
+                                  : btnName === "PRESSURE"
+                                  ? " Pa"
+                                  : "";
                             }
                             if (
                               btnName === "DAC_OUT_MIN_FLOW" ||
@@ -2546,7 +2554,7 @@ When connected to several devices, the target connection decides which device yo
             }
             let crc = checksum(hexvalue);
             my_dongle
-              .at_spssend("ASMV=" + theVal + "=" + crc + " ")
+              .at_spssend("ASMV=" + theVal + "=" + crc + "    ")
               .then(function (res) {
                 document.getElementById("terminal").innerHTML += res + "<br/>";
                 document.getElementById("liveToast").classList.add("show");
@@ -2566,7 +2574,7 @@ When connected to several devices, the target connection decides which device yo
             }
             let crc = checksum(hexvalue);
             my_dongle
-              .at_spssend("ASMP=" + theVal + "=" + crc + " ")
+              .at_spssend("ASMP=" + theVal + "=" + crc + "    ")
               .then(function (res) {
                 document.getElementById("terminal").innerHTML += res + "<br/>";
                 document.getElementById("liveToast").classList.add("show");
