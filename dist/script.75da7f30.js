@@ -1584,7 +1584,9 @@ When connected to several devices, the target connection decides which device yo
                             } else {
                               dataFromMatrix = z[z.length - 1];
                             }
-                            let theDt = dataFromMatrix.split("=")[1];
+                            let arr = dataFromMatrix.split("=")
+                            
+                            let theDt = arr[arr.length-2];
                             if (btnName === "FIRMWARE_REV") {
                               theDt =
                                 parseInt(theDt.substr(0, 2), 16) +
