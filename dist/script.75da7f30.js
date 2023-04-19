@@ -2437,9 +2437,10 @@ When connected to several devices, the target connection decides which device yo
                         theVal =
                           (
                             parseInt(dataFromMatrix[1].split("_")[0]) / 716800
-                          ).toFixed(1) + " % closed";
+                          ).toFixed(1);
+                          theVal *=100
                         dataFromMatrix = dataFromMatrix.join("=");
-                        dataFromMatrix = dataFromMatrix + " (" + theVal + " )";
+                        dataFromMatrix = dataFromMatrix + " (" + theVal + "  % closed )";
                       }
                       if (btn == "READ_ADC_DATA") {
                         let op = "";
