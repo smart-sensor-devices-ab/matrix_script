@@ -2434,13 +2434,13 @@ When connected to several devices, the target connection decides which device yo
                       let theVal;
                       if (btn == "READ_MOTOR_DATA") {
                         dataFromMatrix = dataFromMatrix.split("=").slice(1, 5);
-                        theVal =
-                          (
-                            parseInt(dataFromMatrix[1].split("_")[0]) / 716800
-                          ).toFixed(1);
-                          theVal *=100
+                        theVal = (
+                          parseInt(dataFromMatrix[1].split("_")[0]) / 716800
+                        ).toFixed(1);
+                        theVal *= 100;
                         dataFromMatrix = dataFromMatrix.join("=");
-                        dataFromMatrix = dataFromMatrix + " (" + theVal + "  % closed )";
+                        dataFromMatrix =
+                          dataFromMatrix + " (" + theVal + "  % closed )";
                       }
                       if (btn == "READ_ADC_DATA") {
                         let op = "";
@@ -2449,7 +2449,7 @@ When connected to several devices, the target connection decides which device yo
                         let val3 = "";
                         let val4 = "";
                         let theData = dataFromMatrix.split("=");
-                        console.log(theData)
+                        console.log(theData);
                         if (theData.length == 3) {
                           val1 = parseInt(theData[1]);
                           val2 = parseInt(theData[2]);
@@ -2568,6 +2568,9 @@ When connected to several devices, the target connection decides which device yo
                       res3 + "<br/>";
                     document.getElementById("liveToast").classList.add("show");
                     setTimeout(function () {
+                      document.getElementById(
+                        "MANUAL_CALIBRATION_DATA"
+                      ).innerHTML = "Ok";
                       document
                         .getElementById("liveToast")
                         .classList.remove("show");
