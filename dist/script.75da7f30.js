@@ -2546,7 +2546,7 @@ When connected to several devices, the target connection decides which device yo
             if (hexvalue.length % 2 !== 0) {
               hexvalue = "0" + hexvalue;
             }
-            crc = checksum(hexvalue);
+            let crc = checksum(hexvalue);
             my_dongle
               .at_spssend2("ASMV=" + theVal + "=" + crc)
               .then(function (res) {
@@ -2566,7 +2566,7 @@ When connected to several devices, the target connection decides which device yo
             if (hexvalue.length % 2 !== 0) {
               hexvalue = "0" + hexvalue;
             }
-            crc = checksum(hexvalue);
+            let crc = checksum(hexvalue);
             my_dongle
               .at_spssend2("ASMP=" + theVal + "=" + crc)
               .then(function (res) {
