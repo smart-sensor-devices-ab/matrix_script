@@ -46,9 +46,13 @@
               <button id="connectToBoardID" class="btn btn-primary">
                 Connect to Matrix
               </button>
+              <span id="boardIdConnectionLoader" style="display: none"
+                >Loading ...
+              </span>
             </div>
             <div class="col-md-3">
               <div id="theMacAddress" class="ml-2"></div>
+              <div id="boardIdError" class="ml-2"></div>
             </div>
             <div class="col-md-2"></div>
           </div>
@@ -1802,6 +1806,216 @@
                             id="STOP_MOTOR_CONF_BTN"
                           >
                             Stop
+                          </button>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="FIRMWARE_RESET" class="col-form-label"
+                            >Restarts Matrix</label
+                          >
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="FIRMWARE_RESET_CONF_BTN"
+                          >
+                            Restart
+                          </button>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="FIRMWARE_UPDATE" class="col-form-label"
+                            >Firmware Update</label
+                          >
+                        </div>
+                        <div class="col-4">
+                          <button
+                            class="btn btn-success"
+                            id="FIRMWARE_UPDATE_CONF_BTN"
+                          >
+                            Update (Puts Matrix in DFU mode)
+                          </button>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="READ_MOTOR" class="col-form-label"
+                            >Read motor values</label
+                          >
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="READ_MOTOR_CONF_BTN"
+                          >
+                            Read
+                          </button>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="CHECK_SWITCH" class="col-form-label"
+                            >Checks switch</label
+                          >
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="CHECK_SWITCH_CONF_BTN"
+                          >
+                            Check
+                          </button>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="READ_ADC" class="col-form-label"
+                            >Checks ADC</label
+                          >
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="READ_ADC_CONF_BTN"
+                          >
+                            Check
+                          </button>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="SET_MOTOR_VEL" class="col-form-label"
+                            >Set motor value</label
+                          >
+                        </div>
+                        <div class="col-3">
+                          <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"
+                              >Dec</span
+                            >
+                            <input
+                              type="text"
+                              id="SET_MOTOR_VEL_VALUE"
+                              class="form-control"
+                              placeholder="500 to 9000"
+                              maxlength="4"
+                              onkeyup="this.value = this.value.toUpperCase();"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="SET_MOTOR_VEL_CONF_BTN"
+                          >
+                            Config
+                          </button>
+                        </div>
+                        <div class="col-4 text-end d-none">
+                          <strong>Current Value :</strong>
+                          <button
+                            class="btn btn-sm btn-warning"
+                            id="SET_MOTOR_VEL_READ_BTN"
+                          >
+                            Read
+                          </button>
+                          <span id="SET_MOTOR_VEL_READ_DATA"></span>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="SET_MOTOR_PWR" class="col-form-label"
+                            >Set motor power</label
+                          >
+                        </div>
+                        <div class="col-3">
+                          <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"
+                              >Dec</span
+                            >
+                            <input
+                              type="text"
+                              id="SET_MOTOR_PWR_VALUE"
+                              class="form-control"
+                              placeholder="1 to 32"
+                              maxlength="2"
+                              onkeyup="this.value = this.value.toUpperCase();"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="SET_MOTOR_PWR_CONF_BTN"
+                          >
+                            Config
+                          </button>
+                        </div>
+                        <div class="col-4 text-end d-none">
+                          <strong>Current Value :</strong>
+                          <button
+                            class="btn btn-sm btn-warning"
+                            id="SET_MOTOR_PWR_READ_BTN"
+                          >
+                            Read
+                          </button>
+                          <span id="SET_MOTOR_PWR_READ_DATA"></span>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="MANUAL_CALIBRATION" class="col-form-label"
+                            >Manual Calibrate</label
+                          >
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="MANUAL_CALIBRATION_CONF_BTN"
+                          >
+                            Manual Calibrate
                           </button>
                         </div>
                       </div>
