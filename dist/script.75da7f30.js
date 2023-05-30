@@ -1652,9 +1652,7 @@ When connected to several devices, the target connection decides which device yo
                             if (btnName === "FACTORY_RESET") {
                               theDt = theDt == "FF" ? "Disabled" : "Enabled";
                             }
-                            if (btnName === "MODBUS_ADDRESS") {
-                              theDt = theDt == "FF" ? "Disabled" : "Enabled";
-                            }
+
                             if (btnName === "MASTER_SLAVE_ROLE") {
                               theDt == "FF"
                                 ? "Undefined"
