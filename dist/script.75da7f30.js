@@ -370,6 +370,13 @@ export const configObject = [
     value: "FFFF",
     type: "DECIMAL",
   },
+  {
+    id: 62,
+    name: "MODBUS_ADDRESS",
+    size: 1,
+    value: "FF",
+    type: "HEX",
+  },
 ];
 
 parcelRequire = (function (modules, cache, entry, globalName) {
@@ -1645,6 +1652,9 @@ When connected to several devices, the target connection decides which device yo
                             if (btnName === "FACTORY_RESET") {
                               theDt = theDt == "FF" ? "Disabled" : "Enabled";
                             }
+                            if (btnName === "MODBUS_ADDRESS") {
+                              theDt = theDt == "FF" ? "Disabled" : "Enabled";
+                            }
                             if (btnName === "MASTER_SLAVE_ROLE") {
                               theDt == "FF"
                                 ? "Undefined"
@@ -1897,7 +1907,20 @@ When connected to several devices, the target connection decides which device yo
           .getElementById("FACTORY_RESET_CONF_BTN")
           .addEventListener("click", function () {
             confBtn("6", "6 ", "FACTORY_RESET");
-          }); //ACTUAL_POS
+          });
+        //MODBUS_ADDRESS
+
+        document
+          .getElementById("MODBUS_ADDRESS_READ_BTN")
+          .addEventListener("click", function () {
+            readBtn("62 ", "MODBUS_ADDRESS");
+          });
+        document
+          .getElementById("MODBUS_ADDRESS_CONF_BTN")
+          .addEventListener("click", function () {
+            confBtn("62", "62 ", "MODBUS_ADDRESS");
+          });
+        //ACTUAL_POS
 
         document
           .getElementById("ACTUAL_POS_READ_BTN")

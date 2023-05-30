@@ -1461,6 +1461,53 @@
                       <!-- end single item -->
                     </td>
                   </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label
+                            for="MODBUS_ADDRESS_VALUE"
+                            class="col-form-label"
+                            >MODBUS_ADDRESS</label
+                          >
+                        </div>
+                        <div class="col-3">
+                          <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"
+                              >HEX</span
+                            >
+                            <input
+                              type="text"
+                              id="MODBUS_ADDRESS_VALUE"
+                              class="form-control"
+                              placeholder="size : 1"
+                              maxlength="2"
+                              onkeyup="this.value = this.value.toUpperCase();"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="MODBUS_ADDRESS_CONF_BTN"
+                          >
+                            Config
+                          </button>
+                        </div>
+                        <div class="col-4 text-end">
+                          <strong>Current Value :</strong>
+                          <button
+                            class="btn btn-sm btn-warning"
+                            id="MODBUS_ADDRESS_READ_BTN"
+                          >
+                            Read
+                          </button>
+                          <span id="MODBUS_ADDRESS_READ_DATA"></span>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
                 </table>
               </div>
               <div
