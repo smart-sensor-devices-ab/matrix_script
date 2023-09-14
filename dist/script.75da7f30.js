@@ -1678,7 +1678,6 @@ When connected to several devices, the target connection decides which device yo
                               btnName === 'MODBUS_MODE' ||
                               btnName === 'MODBUS_DATA_BIT' ||
                               btnName === 'MODBUS_PARITY' ||
-                              btnName === 'MODBUS_BAUD' ||
                               btnName === 'MODBUS_STOP_BIT'
                             ) {
                               theDt = parseInt(theDt, 16);
