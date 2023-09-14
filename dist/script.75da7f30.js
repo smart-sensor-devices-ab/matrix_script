@@ -1716,7 +1716,10 @@ When connected to several devices, the target connection decides which device yo
                                 ? 'VARIABLE_FLOW (VAV)'
                                 : 'VARIABLE_FLOW (VAV)';
                             }
-                            if (btnName === 'ACTUAL_POS') {
+                            if (
+                              btnName === 'ACTUAL_POS' ||
+                              btnName === 'MODBUS_BAUD'
+                            ) {
                               function bigEndianToLittleEndian(value) {
                                 return (
                                   ((value & 0xff) << 24) |
@@ -1866,6 +1869,9 @@ When connected to several devices, the target connection decides which device yo
           if (theVal) {
             theVal = decimalToHex(theVal, size);
             console.log(theVal);
+            if (btnName == 'MODBUS_BAUD') {
+              theVal = hex2LittleEndian(theVal);
+            }
             my_dongle
               .at_spssend('CFGE=' + writeID + '=' + theVal)
               .then(function (res) {
@@ -2307,7 +2313,7 @@ When connected to several devices, the target connection decides which device yo
         document
           .getElementById('MODBUS_BAUD_CONF_BTN')
           .addEventListener('click', function () {
-            confBtnDec2('64', '64 ', 'MODBUS_BAUD');
+            confBtnDec2Hex('64', '64 ', 'MODBUS_BAUD', 4);
           });
         //MODBUS_DATA_BIT
 
