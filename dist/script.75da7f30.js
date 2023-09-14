@@ -1678,6 +1678,7 @@ When connected to several devices, the target connection decides which device yo
                               btnName === 'MODBUS_MODE' ||
                               btnName === 'MODBUS_DATA_BIT' ||
                               btnName === 'MODBUS_PARITY' ||
+                              btnName === 'MODBUS_BAUD' ||
                               btnName === 'MODBUS_STOP_BIT'
                             ) {
                               theDt = parseInt(theDt, 16);
@@ -2014,7 +2015,6 @@ When connected to several devices, the target connection decides which device yo
         document
           .getElementById('ROOF_TH_READ_BTN')
           .addEventListener('click', function () {
-            console.log('here');
             readBtn('10 ', 'ROOF_TH');
           });
         document
