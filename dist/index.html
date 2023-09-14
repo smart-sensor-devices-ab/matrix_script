@@ -116,6 +116,18 @@
                 >
                   Admin Control
                 </button>
+                <button
+                  class="nav-link"
+                  id="nav-modbus-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#nav-modbus"
+                  type="button"
+                  role="tab"
+                  aria-controls="nav-modbus"
+                  aria-selected="false"
+                >
+                  Modbus
+                </button>
               </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -1461,53 +1473,6 @@
                       <!-- end single item -->
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      <div class="row g-3 align-items-center singleItem">
-                        <div class="col-3">
-                          <label
-                            for="MODBUS_ADDRESS_VALUE"
-                            class="col-form-label"
-                            >MODBUS_ADDRESS</label
-                          >
-                        </div>
-                        <div class="col-3">
-                          <div class="input-group">
-                            <span class="input-group-text" id="basic-addon1"
-                              >HEX</span
-                            >
-                            <input
-                              type="text"
-                              id="MODBUS_ADDRESS_VALUE"
-                              class="form-control"
-                              placeholder="size : 1"
-                              maxlength="2"
-                              onkeyup="this.value = this.value.toUpperCase();"
-                            />
-                          </div>
-                        </div>
-                        <div class="col-2">
-                          <button
-                            class="btn btn-success"
-                            id="MODBUS_ADDRESS_CONF_BTN"
-                          >
-                            Config
-                          </button>
-                        </div>
-                        <div class="col-4 text-end">
-                          <strong>Current Value :</strong>
-                          <button
-                            class="btn btn-sm btn-warning"
-                            id="MODBUS_ADDRESS_READ_BTN"
-                          >
-                            Read
-                          </button>
-                          <span id="MODBUS_ADDRESS_READ_DATA"></span>
-                        </div>
-                      </div>
-                      <!-- end single item -->
-                    </td>
-                  </tr>
                 </table>
               </div>
               <div
@@ -2077,6 +2042,304 @@
                         </div>
                         <div class="col-2">
                           <div id="MANUAL_CALIBRATION_Data"></div>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div
+                class="tab-pane fade show p-3"
+                id="nav-modbus"
+                role="tabpanel"
+                aria-labelledby="nav-modbus-tab"
+                tabindex="0"
+              >
+                <table class="table table-striped">
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label
+                            for="MODBUS_ADDRESS_VALUE"
+                            class="col-form-label"
+                            >MODBUS_ADDRESS</label
+                          >
+                        </div>
+                        <div class="col-3">
+                          <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"
+                              >HEX</span
+                            >
+                            <input
+                              type="text"
+                              id="MODBUS_ADDRESS_VALUE"
+                              class="form-control"
+                              placeholder="size : 1"
+                              maxlength="2"
+                              onkeyup="this.value = this.value.toUpperCase();"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="MODBUS_ADDRESS_CONF_BTN"
+                          >
+                            Config
+                          </button>
+                        </div>
+                        <div class="col-4 text-end">
+                          <strong>Current Value :</strong>
+                          <button
+                            class="btn btn-sm btn-warning"
+                            id="MODBUS_ADDRESS_READ_BTN"
+                          >
+                            Read
+                          </button>
+                          <span id="MODBUS_ADDRESS_READ_DATA"></span>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="MODBUS_MODE_VALUE" class="col-form-label"
+                            >MODBUS_MODE</label
+                          >
+                        </div>
+                        <div class="col-3">
+                          <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"
+                              >Dec</span
+                            >
+                            <select
+                              name=""
+                              id=""
+                              id="MODBUS_MODE_VALUE"
+                              class="form-control"
+                            >
+                              <option value="255">255</option>
+                              <option value="32">32</option>
+                              <option value="16">16</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="MODBUS_MODE_CONF_BTN"
+                          >
+                            Config
+                          </button>
+                        </div>
+                        <div class="col-4 text-end">
+                          <strong>Current Value :</strong>
+                          <button
+                            class="btn btn-sm btn-warning"
+                            id="MODBUS_MODE_READ_BTN"
+                          >
+                            Read
+                          </button>
+                          <span id="MODBUS_MODE_READ_DATA"></span>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label for="MODBUS_BAUD_VALUE" class="col-form-label"
+                            >MODBUS_BAUD</label
+                          >
+                        </div>
+                        <div class="col-3">
+                          <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"
+                              >Dec</span
+                            >
+                            <input
+                              type="text"
+                              id="MODBUS_BAUD_VALUE"
+                              class="form-control"
+                              placeholder="size : 4"
+                              maxlength="8"
+                              onkeyup="this.value = this.value.toUpperCase();"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="MODBUS_BAUD_CONF_BTN"
+                          >
+                            Config
+                          </button>
+                        </div>
+                        <div class="col-4 text-end">
+                          <strong>Current Value :</strong>
+                          <button
+                            class="btn btn-sm btn-warning"
+                            id="MODBUS_BAUD_READ_BTN"
+                          >
+                            Read
+                          </button>
+                          <span id="MODBUS_BAUD_READ_DATA"></span>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label
+                            for="MODBUS_DATA_BIT_VALUE"
+                            class="col-form-label"
+                            >MODBUS_DATA_BIT</label
+                          >
+                        </div>
+                        <div class="col-3">
+                          <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"
+                              >Dec</span
+                            >
+                            <select
+                              name=""
+                              id=""
+                              id="MODBUS_DATA_BIT_VALUE"
+                              class="form-control"
+                            >
+                              <option value="255">255</option>
+                              <option value="9">9</option>
+                              <option value="8">8</option>
+                              <option value="7">7</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="MODBUS_DATA_BIT_CONF_BTN"
+                          >
+                            Config
+                          </button>
+                        </div>
+                        <div class="col-4 text-end">
+                          <strong>Current Value :</strong>
+                          <button
+                            class="btn btn-sm btn-warning"
+                            id="MODBUS_DATA_BIT_READ_BTN"
+                          >
+                            Read
+                          </button>
+                          <span id="MODBUS_DATA_BIT_READ_DATA"></span>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label
+                            for="MODBUS_PARITY_VALUE"
+                            class="col-form-label"
+                            >MODBUS_PARITY</label
+                          >
+                        </div>
+                        <div class="col-3">
+                          <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"
+                              >Dec</span
+                            >
+                            <select
+                              name=""
+                              id=""
+                              id="MODBUS_PARITY_VALUE"
+                              class="form-control"
+                            >
+                              <option value="255">255</option>
+                              <option value="0">0</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="MODBUS_PARITY_CONF_BTN"
+                          >
+                            Config
+                          </button>
+                        </div>
+                        <div class="col-4 text-end">
+                          <strong>Current Value :</strong>
+                          <button
+                            class="btn btn-sm btn-warning"
+                            id="MODBUS_PARITY_READ_BTN"
+                          >
+                            Read
+                          </button>
+                          <span id="MODBUS_PARITY_READ_DATA"></span>
+                        </div>
+                      </div>
+                      <!-- end single item -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="row g-3 align-items-center singleItem">
+                        <div class="col-3">
+                          <label
+                            for="MODBUS_STOP_BIT_VALUE"
+                            class="col-form-label"
+                            >MODBUS_STOP_BIT</label
+                          >
+                        </div>
+                        <div class="col-3">
+                          <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"
+                              >Dec</span
+                            >
+                            <select
+                              name=""
+                              id=""
+                              id="MODBUS_STOP_BIT_VALUE"
+                              class="form-control"
+                            >
+                              <option value="255">255</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <button
+                            class="btn btn-success"
+                            id="MODBUS_STOP_BIT_CONF_BTN"
+                          >
+                            Config
+                          </button>
+                        </div>
+                        <div class="col-4 text-end">
+                          <strong>Current Value :</strong>
+                          <button
+                            class="btn btn-sm btn-warning"
+                            id="MODBUS_STOP_BIT_READ_BTN"
+                          >
+                            Read
+                          </button>
+                          <span id="MODBUS_STOP_BIT_READ_DATA"></span>
                         </div>
                       </div>
                       <!-- end single item -->
